@@ -36,6 +36,7 @@ echo -e "---------------------------------------"
 echo -e ${txtrst}
 
 START=$(date +%s)
+ABC_VERSION=8.1.0-$(date +%Y%m%d)
 
 # Sync with latest sources
 if [ "$SYNC" == "sync" ]
@@ -94,13 +95,13 @@ then
     fi
 
     cp $BUILD_PATH/ABC_ROM_*.zip $ROOT_PATH
-    cp $BUILD_PATH/$DEVICE-Changelog.txt $ROOT_PATH
+    cp $BUILD_PATH/ABC-Changelog-$DEVICE-$ABC_VERSION.txt $ROOT_PATH
     # Google Drive upload
     if [ "$GDRIVE" == "gdrive" ]
     then
     echo -e "${bldblu}Uploading build to Google Drive ${txtrst}"
     gdrive upload ABC_ROM_*.zip
-	gdrive upload $DEVICE-Changelog.txt
+	gdrive upload ABC-Changelog-$DEVICE-$ABC_VERSION.txt
     fi
 # If the build failed
 else
