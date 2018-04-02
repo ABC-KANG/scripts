@@ -100,7 +100,7 @@ then
     if [ "$GDRIVE" == "gdrive" ]
     then
     echo -e "${bldblu}Uploading build to Google Drive ${txtrst}"
-    gdrive upload ABC_ROM_*.zip
+    gdrive upload ABC_ROM_$DEVICE*.zip
 	gdrive upload ABC-Changelog-$DEVICE-$ABC_VERSION.txt
     fi
 # If the build failed
